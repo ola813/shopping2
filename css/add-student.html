@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+        body{
+            direction: rtl;
+        }
+        input{
+            display: block;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function validate(){
+            var textf= document.getElementById('textfram');
+            if(textf.value==0 || value ==null){
+                document.getElementById('erorr').innerText = 'ادخل الاسم';
+                document.getElementById('erorr').style.color = 'red';
+                textf.focus();
+                return false;
+            }
+            else{
+                document.getElementById('erorr').innerText = '';
+                return true;
+            }
+        }
+
+        function validate1(){
+            var textf1= document.getElementById('textfram1');
+            if(textf1.value==0 || value ==null){
+                document.getElementById('erorre').innerText = 'ادخل الشهرة';
+                document.getElementById('erorre').style.color = 'red';
+                textf.focus();
+                return false;
+            }
+            else{
+                document.getElementById('erorr').innerText = '';
+                return true;
+            }
+        }
+        function checkage(input){
+            if(Number(input.value)>18 || input.value<50){
+                document.getElementById('erorrage').innerText = 'العمر المطلوب من 18 الى 50'; 
+                document.getElementById('erorrage').style.color = 'red';
+                input.focus();
+                return false;
+            }
+            else{
+                document.getElementById('erorrage').innerText = '';
+                return true;
+            }
+        }
+        function check(input){
+            var loc='^[a-zA-Z]+$';
+            if(input.value.match(loc)){
+                return true;
+            }
+            else{
+                document.getElementById('erorrloc').innerText = 'العنوان يجب ان يحتوي على محارف'; 
+                document.getElementById('erorrloc').style.color = 'red'; 
+                input.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+ <table>
+     <tr>
+         <td>الاسم</td>
+         <td><input type="text" id="textfram" autofocus="autofocus" placeholder="الاسم"></td>
+         <td><span id="erorr"></span></td>
+     </tr>
+
+     <tr>
+        <td>الشهرة</td>
+        <td><input type="text" id="textfram1" autofocus="autofocus"onblur="validate1(textfram1)" placeholder="الشهرة"></td>
+        <td><span id="erorre"></span></td>
+    </tr>
+    <tr>
+        <td>العمر</td>
+        <td><input type="number" id="agefarm" autofocus="autofocus" onblur="checkage(agefarm)" placeholder="العمر"></td>
+        <td><span id="erorrage"></span></td>
+    </tr>
+    <tr>
+        <td>الرقم الوطني</td>
+        <td><input type="text"  autofocus="autofocus"placeholder="الرقم الوطني"></td>
+        
+    </tr>
+    <tr>
+        <td>العنوان</td>
+        <td><input type="text" id="locfram" autofocus="autofocus" onblur="check(locfram)" placeholder="العنوان"></td>
+        <td><span id="erorrloc"></span></td>
+    </tr>
+     <tr>
+         <td><input type="button" value="تسجيل" onclick="validate()"></td>
+     </tr>
+ </table>
+</form>
+</body>
+</html>
